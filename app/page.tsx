@@ -1,6 +1,10 @@
+import { User, UserManager } from "@/models/user";
+import { randomUUID } from "crypto";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const a = new User({ id: randomUUID() });
+  await UserManager.create(a);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
